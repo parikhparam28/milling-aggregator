@@ -225,12 +225,14 @@ class MillingAggregatorAPITester:
             'notes': 'Test RFQ without file'
         }
         
+        # Use the same approach as the working RFQ creation
         success, response = self.run_test(
             "Create RFQ without File",
             "POST",
             "rfqs",
             200,
-            data=form_data
+            data=form_data,
+            files=None  # No files
         )
         
         if success and 'id' in response:
