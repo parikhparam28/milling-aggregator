@@ -119,17 +119,47 @@ class MillingAggregatorAPITester:
     def test_login(self):
         """Test user login and get token"""
         # Login uses form data, not JSON
-        success, response = self.run_test(
-            "User Login",
-            "POST",
-            "auth/login",
-            200,
-            data={
+        url = f"{self.api_url}/auth/login"
+        self.tests_run += 1
+        self.log(f"🔍 Testing User Login...")
+        self.log(f"   URL: {url}")
+        
+        try:
+            # Use form data for OAuth2PasswordRequestForm
+            form_data = {
                 "username": self.user_email,
                 "password": self.user_password
-            },
-            headers={'Content-Type': 'application/x-www-form-urlencoded'}
-        )
+            }
+            
+            response = requests.post(url, data=form_data)
+            
+            success = response.status_code == 200
+            
+            if success:
+                self.tests_passed += 1
+                self.log(f"✅ PASSED - Status: {response.status_code}")
+                try:
+                    response_data = response.json()
+                    self.log(f"   Response: {json.dumps(response_data, indent=2)[:200]}...")
+                    if 'access_token' in response_data:
+                        self.token = response_data['access_token']
+                        self.log(f"✅ Login successful, token obtained")
+                        return True
+                    return False
+                except:
+                    return False
+            else:
+                self.log(f"❌ FAILED - Expected 200, got {response.status_code}")
+                try:
+                    error_data = response.json()
+                    self.log(f"   Error: {json.dumps(error_data, indent=2)}")
+                except:
+                    self.log(f"   Error: {response.text}")
+                return False
+
+        except Exception as e:
+            self.log(f"❌ FAILED - Exception: {str(e)}")
+            return False
         
         if success and 'access_token' in response:
             self.token = response['access_token']
