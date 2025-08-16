@@ -358,14 +358,14 @@ function Requests() {
           </thead>
           <tbody>
             {rfqs.map(r => (
-              &lt;tr className="tr" key={r.id}&gt;
-                &lt;td className="td"&gt;{new Date(r.created_at).toLocaleString()}&lt;/td&gt;
-                &lt;td className="td"&gt;{r.material}&lt;/td&gt;
-                &lt;td className="td"&gt;{r.quantity}&lt;/td&gt;
-                &lt;td className="td"&gt;{r.tolerance || "-"}&lt;/td&gt;
-                &lt;td className="td"&gt;{r.roughness || "-"}&lt;/td&gt;
-                &lt;td className="td"&gt;{r.cad_filename || "-"}&lt;/td&gt;
-              &lt;/tr&gt;
+              <tr className="tr" key={r.id}>
+                <td className="td">{new Date(r.created_at).toLocaleString()}</td>
+                <td className="td">{r.material}</td>
+                <td className="td">{r.quantity}</td>
+                <td className="td">{r.tolerance || "-"}</td>
+                <td className="td">{r.roughness || "-"}</td>
+                <td className="td">{r.cad_filename || "-"}</td>
+              </tr>
             ))}
           </tbody>
         </table>
