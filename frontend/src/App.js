@@ -318,14 +318,14 @@ function Offers() {
             {quotes.map((q) => {
               const rfq = rfqs.find(r => r.id === q.rfq_id);
               return (
-                &lt;tr className="tr" key={q.id}&gt;
-                  &lt;td className="td"&gt;{q.supplier_name}&lt;/td&gt;
-                  &lt;td className="td"&gt;{rfq ? `${rfq.material} × ${rfq.quantity}` : q.rfq_id}&lt;/td&gt;
-                  &lt;td className="td"&gt;€ {q.price.toFixed(2)}&lt;/td&gt;
-                  &lt;td className="td"&gt;{q.lead_time_days} days&lt;/td&gt;
-                  &lt;td className="td"&gt;{q.notes}&lt;/td&gt;
-                  &lt;td className="td"&gt;<Button size="sm" onClick={() => accept(q.id)}>Accept</Button>&lt;/td&gt;
-                &lt;/tr&gt;
+                <tr className="tr" key={q.id}>
+                  <td className="td">{q.supplier_name}</td>
+                  <td className="td">{rfq ? `${rfq.material} × ${rfq.quantity}` : q.rfq_id}</td>
+                  <td className="td">€ {q.price.toFixed(2)}</td>
+                  <td className="td">{q.lead_time_days} days</td>
+                  <td className="td">{q.notes}</td>
+                  <td className="td"><Button size="sm" onClick={() => accept(q.id)}>Accept</Button></td>
+                </tr>
               )
             })}
           </tbody>
