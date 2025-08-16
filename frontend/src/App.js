@@ -412,14 +412,14 @@ function Orders() {
               const quote = quotes.find(q => q.id === o.quote_id);
               const rfq = rfqs.find(r => r.id === o.rfq_id);
               return (
-                &lt;tr className="tr" key={o.id}&gt;
-                  &lt;td className="td"&gt;{o.id.slice(0,8)}&lt;/td&gt;
-                  &lt;td className="td"&gt;{rfq ? `${rfq.material} × ${rfq.quantity}` : o.rfq_id}&lt;/td&gt;
-                  &lt;td className="td"&gt;{quote ? quote.supplier_name : o.quote_id}&lt;/td&gt;
-                  &lt;td className="td"&gt;{quote ? `€ ${quote.price.toFixed(2)}` : "-"}&lt;/td&gt;
-                  &lt;td className="td"&gt;{o.status}&lt;/td&gt;
-                  &lt;td className="td"&gt;{o.status === 'pending_payment' ? &lt;Button size="sm" onClick={() => pay(o.id)}&gt;Pay now&lt;/Button&gt; : null}&lt;/td&gt;
-                &lt;/tr&gt;
+                <tr className="tr" key={o.id}>
+                  <td className="td">{o.id.slice(0,8)}</td>
+                  <td className="td">{rfq ? `${rfq.material} × ${rfq.quantity}` : o.rfq_id}</td>
+                  <td className="td">{quote ? quote.supplier_name : o.quote_id}</td>
+                  <td className="td">{quote ? `€ ${quote.price.toFixed(2)}` : "-"}</td>
+                  <td className="td">{o.status}</td>
+                  <td className="td">{o.status === 'pending_payment' ? <Button size="sm" onClick={() => pay(o.id)}>Pay now</Button> : null}</td>
+                </tr>
               )
             })}
           </tbody>
