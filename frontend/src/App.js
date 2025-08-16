@@ -470,16 +470,16 @@ function AppShell() {
     <div className="app-shell">
       <Navbar user={user} onLogout={onLogout} />
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "16px 20px" }}>
-        &lt;Routes&gt;
-          &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
-          &lt;Route path="/register" element={&lt;Register /&gt;} /&gt;
-          &lt;Route path="/login" element={&lt;Login onLogin={() => {}} /&gt;} /&gt;
-          &lt;Route path="/rfq/new" element={&lt;RFQNew /&gt;} /&gt;
-          &lt;Route path="/requests" element={&lt;Requests /&gt;} /&gt;
-          &lt;Route path="/offers" element={&lt;Offers /&gt;} /&gt;
-          &lt;Route path="/orders" element={&lt;Orders /&gt;} /&gt;
-          &lt;Route path="/payments" element={&lt;Payments /&gt;} /&gt;
-        &lt;/Routes&gt;
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login onLogin={() => {}} />} />
+          <Route path="/rfq/new" element={<RFQNew />} />
+          <Route path="/requests" element={<Requests />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/payments" element={<Payments />} />
+        </Routes>
       </div>
       <footer className="footer"><div className="footer-inner"><span>© {new Date().getFullYear()} Part Aggregator</span><span>Made for milling RFQs</span></div></footer>
       <Toaster richColors position="top-right" />
