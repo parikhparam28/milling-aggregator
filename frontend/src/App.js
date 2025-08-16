@@ -448,12 +448,12 @@ function Payments() {
           </thead>
           <tbody>
             {payments.map(p => (
-              &lt;tr className="tr" key={p.id}&gt;
-                &lt;td className="td"&gt;{new Date(p.created_at).toLocaleString()}&lt;/td&gt;
-                &lt;td className="td"&gt;{p.order_id.slice(0,8)}&lt;/td&gt;
-                &lt;td className="td"&gt;€ {p.amount.toFixed(2)}&lt;/td&gt;
-                &lt;td className="td"&gt;{p.status}&lt;/td&gt;
-              &lt;/tr&gt;
+              <tr className="tr" key={p.id}>
+                <td className="td">{new Date(p.created_at).toLocaleString()}</td>
+                <td className="td">{p.order_id.slice(0,8)}</td>
+                <td className="td">€ {p.amount.toFixed(2)}</td>
+                <td className="td">{p.status}</td>
+              </tr>
             ))}
           </tbody>
         </table>
